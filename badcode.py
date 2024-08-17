@@ -1,12 +1,12 @@
-# Bad Code Implementation: Calculate the Average of a List of Numbers
+AREA_TOLERANCE = 0.1
+THICKNESS_UNIT = "square units"
 
-def average_numbers(num_list):
-    total = 0
-    for num in num_list:
-        total = total + 1  # Oops, this is supposed to be the addition op!
-        print(f"Processing number: {num}")
-    return total / 10  # What about division by the wrong number of items?
+def calc_area(length: float, width: float, thickness: float) -> tuple:
+    area = length * width
+    area_thickness = area * thickness
+    result = f"The area of the rectangle is {area:.2f} {THICKNESS_UNIT} and the area including thickness is {area_thickness:.2f} cubic units"
+    return area, area_thickness, result
 
-# Test the function
-numbers = [1, 2, 3, 4, 5]
-print(f"The average of the numbers is: {average_numbers(numbers)}")
+length, width, thickness = 10, 5, 2
+area, area_thickness, result = calc_area(length, width, thickness)
+print(result)
